@@ -3,11 +3,12 @@
 // 变量名 routerConfig 为 iceworks 检测关键字，请不要修改名称
 import React from 'react';
 import { getRouterData } from './utils/utils';
-import UserRegisterPage from './pages/UserRegisterPage';
 import { asideMenuConfig } from './menuConfig';
 
 const UserLogin = React.lazy(() => import('./pages/UserLogin'));
 const UserRegister = React.lazy(() => import('./pages/UserRegister'));
+const UserLoginPage = React.lazy(() => import('./pages/UserLoginPage'));
+const UserRegisterPage = React.lazy(() => import('./pages/UserRegisterPage'));
 const Dashboard = React.lazy(() => import('./pages/Dashboard'));
 const Charts = React.lazy(() => import('./pages/Charts'));
 const BasicCharts = React.lazy(() => import('./pages/BasicCharts'));
@@ -97,6 +98,10 @@ const routerConfig = [
   {
     path: '/user/register',
     component: UserRegister,
+  },
+  {
+    path: '/user/loginPage',
+    component: UserLoginPage,
   },
   {
     path: '/user/registerPage',

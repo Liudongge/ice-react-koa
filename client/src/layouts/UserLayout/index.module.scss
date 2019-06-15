@@ -1,9 +1,14 @@
-// .container {
-//   position: relative;
-//   min-width: 1200px;
-//   height: 100vh;
-//   background-image: url("./images/bg.jpg");
-// };
+.container {
+  position: relative;
+  min-width: 960px;
+  height: 100vh;
+  // background-image: url("./images/bg.jpg");
+  background-image: url('https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg');
+  background-repeat: no-repeat;
+  background-position: center 110px;
+  background-size: 100%;
+
+};
 .content {
   display: flex;
   align-items: center;

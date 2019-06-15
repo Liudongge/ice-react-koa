@@ -1,5 +1,6 @@
 /* eslint react/no-string-refs:0, array-callback-return:0, react/forbid-prop-types:0 */
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Checkbox, Grid } from '@alifd/next';
 import {
@@ -26,8 +27,8 @@ class AuthForm extends Component {
 
   static defaultProps = {
     links: [],
-    handleSubmit: () => {},
-    formChange: () => {},
+    handleSubmit: () => { },
+    formChange: () => { },
   };
 
   constructor(props) {
@@ -58,7 +59,7 @@ class AuthForm extends Component {
   renderButton = (item) => {
     return (
       <Row
-        className={`${styles.formItem} ${styles.submitButton }`}
+        className={`${styles.formItem} ${styles.submitButton}`}
         key={item.label}
       >
         <CustomButton
@@ -128,11 +129,11 @@ class AuthForm extends Component {
 
             {Array.isArray(links) && links.length ? (
               <Row className={styles.footer}>
-                {links.map((item, index) => {
+                {links.map(item => {
                   return (
-                    <a key={index} href={item.to} className={styles.link}>
+                    <Link to={item.to} className={styles.link}>
                       {item.text}
-                    </a>
+                    </Link>
                   );
                 })}
               </Row>

@@ -136,8 +136,8 @@ export default class RegisterForm extends Component {
     };
 
     const links = [
-      { to: '/', text: '已有账号' },
-      { to: '/forgetpassword', text: '找回密码' },
+      { to: '/user/loginPage', text: '已有账号' },
+      // { to: '/forgetpassword', text: '找回密码' },
     ];
 
     return (
