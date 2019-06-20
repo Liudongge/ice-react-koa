@@ -3,11 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Checkbox, Grid } from '@alifd/next';
-import {
-  FormBinderWrapper as IceFormBinderWrapper,
-  FormBinder as IceFormBinder,
-  FormError as IceFormError,
-} from '@icedesign/form-binder';
+import { FormBinderWrapper as IceFormBinderWrapper, FormBinder as IceFormBinder, FormError as IceFormError } from '@icedesign/form-binder';
 import CustomInput from './CustomInput';
 import CustomButton from './CustomButton';
 import styles from './index.module.scss';
@@ -27,8 +23,8 @@ class AuthForm extends Component {
 
   static defaultProps = {
     links: [],
-    handleSubmit: () => { },
-    formChange: () => { },
+    handleSubmit: () => {},
+    formChange: () => {},
   };
 
   constructor(props) {
@@ -38,7 +34,7 @@ class AuthForm extends Component {
     };
   }
 
-  formChange = (value) => {
+  formChange = value => {
     this.setState(
       {
         value,
@@ -49,31 +45,24 @@ class AuthForm extends Component {
     );
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.refs.form.validateAll((errors, values) => {
       this.props.handleSubmit(errors, values);
     });
   };
 
-  renderButton = (item) => {
+  renderButton = item => {
     return (
-      <Row
-        className={`${styles.formItem} ${styles.submitButton}`}
-        key={item.label}
-      >
-        <CustomButton
-          {...item.componentProps}
-          className={styles.buttonBorder}
-          onClick={this.handleSubmit}
-        >
+      <Row className={`${styles.formItem} ${styles.submitButton}`} key={item.label}>
+        <CustomButton {...item.componentProps} className={styles.buttonBorder} onClick={this.handleSubmit}>
           {item.label}
         </CustomButton>
       </Row>
     );
   };
 
-  renderInput = (item) => {
+  renderInput = item => {
     return (
       <Row className={styles.formItem} key={item.label}>
         <Col className={styles.formItemCol}>
@@ -88,7 +77,7 @@ class AuthForm extends Component {
     );
   };
 
-  renderCheckbox = (item) => {
+  renderCheckbox = item => {
     return (
       <Row className={styles.formItem} key={item.label}>
         <Col>
@@ -100,8 +89,8 @@ class AuthForm extends Component {
     );
   };
 
-  renderFromItem = (config) => {
-    return config.map((item) => {
+  renderFromItem = config => {
+    return config.map(item => {
       if (item.component === 'Input') {
         return this.renderInput(item);
       } else if (item.component === 'Checkbox') {
@@ -119,11 +108,7 @@ class AuthForm extends Component {
     return (
       <div className={styles.formContainer}>
         <h4 className={styles.formTitle}>{title}</h4>
-        <IceFormBinderWrapper
-          value={value}
-          onChange={this.formChange}
-          ref="form"
-        >
+        <IceFormBinderWrapper value={value} onChange={this.formChange} ref="form">
           <div className={styles.formItems}>
             {this.renderFromItem(config)}
 
@@ -131,7 +116,7 @@ class AuthForm extends Component {
               <Row className={styles.footer}>
                 {links.map(item => {
                   return (
-                    <Link to={item.to} className={styles.link}>
+                    <Link to={item.to} className={styles.link} key={item.to}>
                       {item.text}
                     </Link>
                   );

@@ -21,19 +21,15 @@ export default class UserLayout extends Component {
       <div className={styles.container}>
         <Row wrap>
           <Col l="12">
-            <div className={styles.containerForget}>
+            <div className={styles.content}>
               <div className={styles.logo}>
                 <a href="#" className={styles.link}>
-                  <img
-                    className={styles.logoImg}
-                    src={require('./images/SC-logo.png')}
-                    alt="logo"
-                  />
+                  <img className={styles.logoImg} src={require('./images/SC-logo.png')} alt="logo" />
                 </a>
               </div>
               <div className={styles.title}>
                 SC <br />
-                一站式登陆解决方案
+                一站式登陆验证解决方案
               </div>
               <p className={styles.description}>xxxxxxxxx-team</p>
               <div className={styles.border} />
@@ -44,14 +40,7 @@ export default class UserLayout extends Component {
               <Suspense fallback={<PageLoading />}>
                 <Switch>
                   {routerData.map((item, index) => {
-                    return item.component ? (
-                      <Route
-                        key={index}
-                        path={item.path}
-                        component={item.component}
-                        exact={item.exact}
-                      />
-                    ) : null;
+                    return item.component ? <Route key={index} path={item.path} component={item.component || null} exact={item.exact} /> : null;
                   })}
 
                   <Redirect exact from="/user" to="/user/loginPage" />

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Message } from '@alifd/next';
 import AuthForm from './AuthForm';
+import { register } from './action/actions';
 
 export default class RegisterForm extends Component {
   static displayName = 'RegisterForm';
@@ -39,7 +40,7 @@ export default class RegisterForm extends Component {
     }
   };
 
-  formChange = (value) => {
+  formChange = value => {
     console.log('formChange:', value);
     this.setState({
       value,
@@ -51,7 +52,8 @@ export default class RegisterForm extends Component {
       console.log('errors', errors);
       return;
     }
-    console.log('values:', values);
+    // submit information
+    register(values);
     Message.success('注册成功');
     // 注册成功后做对应的逻辑处理
   };
@@ -142,14 +144,7 @@ export default class RegisterForm extends Component {
 
     return (
       <div className="user-register">
-        <AuthForm
-          title="注册"
-          config={config}
-          initFields={initFields}
-          links={links}
-          formChange={this.formChange}
-          handleSubmit={this.handleSubmit}
-        />
+        <AuthForm title="注册" config={config} initFields={initFields} links={links} formChange={this.formChange} handleSubmit={this.handleSubmit} />
       </div>
     );
   }

@@ -5,8 +5,8 @@ import React from 'react';
 import { getRouterData } from './utils/utils';
 import { asideMenuConfig } from './menuConfig';
 
-const UserLogin = React.lazy(() => import('./pages/UserLogin'));
-const UserRegister = React.lazy(() => import('./pages/UserRegister'));
+// const UserLogin = React.lazy(() => import('./pages/UserLogin'));
+// const UserRegister = React.lazy(() => import('./pages/UserRegister'));
 const UserLoginPage = React.lazy(() => import('./pages/UserLoginPage'));
 const UserRegisterPage = React.lazy(() => import('./pages/UserRegisterPage'));
 const Dashboard = React.lazy(() => import('./pages/Dashboard'));
@@ -91,14 +91,14 @@ const routerConfig = [
     path: '/exception/404',
     component: NotFound,
   },
-  {
-    path: '/user/login',
-    component: UserLogin,
-  },
-  {
-    path: '/user/register',
-    component: UserRegister,
-  },
+  // {
+  //   path: '/user/login',
+  //   component: UserLogin,
+  // },
+  // {
+  //   path: '/user/register',
+  //   component: UserRegister,
+  // },
   {
     path: '/user/loginPage',
     component: UserLoginPage,
